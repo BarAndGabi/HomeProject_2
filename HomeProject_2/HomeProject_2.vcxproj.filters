@@ -14,4 +14,44 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AirPort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AirLine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AirPortManger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Flight.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AirPortManger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Flight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AirLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
