@@ -1,7 +1,8 @@
 #ifndef _AIRPORTMANGER
 #define _AIRPORTMANGER
 #include "AirPort.h"
-typedef struct {
+typedef struct
+{
 
-}AirPortManger;
+} AirPortManger;
 #endif // !_AIRPORTMANGER

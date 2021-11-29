@@ -1,12 +1,13 @@
 #ifndef _DATE
 #define _DATE
-typedef struct {
+typedef struct
+{
 	int day;
 	int month;
 	int year;
-}Date;
+} Date;
 
-int initDate(Date* pD);
-void printDate(Date* pD);
+int initDate(Date *pD);
+void printDate(Date *pD);
 
 #endif // !_DATE

@@ -1,7 +1,8 @@
 #ifndef _AIRLINE
 #define _AIRLINE
 #include "Flight.h"
-typedef struct{
+typedef struct
+{
 
-}AirLine;
+} AirLine;
 #endif // !_AirLine

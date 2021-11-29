@@ -2,15 +2,16 @@
 
 #define ADDRESS
 
-typedef struct {
-	char* country;
-	char* city;
-	char* street;
+typedef struct
+{
+	char *country;
+	char *city;
+	char *street;
 	int houseNumber;
-}Address;
+} Address;
 
-int initAddress(Address* pA);
-void printAddress(Address* pA);
-void freeAddress(Address* pA);
-char*	createDynStr(const char* msg);
+int initAddress(Address *pA);
+void printAddress(Address *pA);
+void freeAddress(Address *pA);
+char *createDynStr(const char *msg);
 #endif // !ADDRESS
