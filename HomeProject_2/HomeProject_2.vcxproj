@@ -118,17 +118,20 @@
     <ClCompile Include="Address.c" />
     <ClCompile Include="AirLine.c" />
     <ClCompile Include="AirPort.c" />
-    <ClCompile Include="AirPortManger.c" />
     <ClCompile Include="Date.c" />
     <ClCompile Include="Flight.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="AirportManager.c" />
+    <ClCompile Include="Utill.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="AirLine.h" />
     <ClInclude Include="AirPort.h" />
-    <ClInclude Include="AirPortManger.h" />
+    <ClInclude Include="AirportManager.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Flight.h" />
+    <ClInclude Include="Utill.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

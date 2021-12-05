@@ -3,6 +3,6 @@
 
 typedef struct
 {
-
+	int a ;
 } flight;
 #endif // !_FLIGHT

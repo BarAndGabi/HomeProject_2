@@ -1,6 +1,8 @@
-#include "Address.h"
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
+#include "Address.h"
+#include "Utill.h"
 int initAddress(Address *pA)
 { 
 	pA->country = createDynStr("country name");
@@ -8,6 +10,7 @@ int initAddress(Address *pA)
 	pA->street = createDynStr("street name");
 	printf("\nEnter house number:\n");
 	scanf("%d", &pA->houseNumber);
+	return 0;
 }
 
 void printAddress(Address *pA)
@@ -17,22 +20,5 @@ void printAddress(Address *pA)
 
 void freeAddress(Address *pA)
 {
-	free(pA->city);
-	free(pA->country);
-	free(pA->street);
 }
 
-char *createDynStr(const char *msg)
-{
-	char *str;
-	char temp[255];
-	printf("Enter %s: ", msg);
-	scanf("%s", temp);
-
-	str = (char *)malloc((strlen(temp) + 1) * sizeof(char));
-	if (!str)
-		return NULL;
-	strcpy(str, temp);
-
-	return str;
-}
