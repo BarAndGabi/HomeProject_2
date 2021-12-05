@@ -1,18 +1,19 @@
 ﻿  Address.c
   AirLine.c
   AirPort.c
-c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.c(5): warning C4013: 'printf' undefined; assuming extern returning int
-c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.c(7): warning C4013: 'scanf' undefined; assuming extern returning int
-c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.c(17): warning C4013: 'strcmp' undefined; assuming extern returning int
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\airport.c(5): warning C4013: 'printf' undefined; assuming extern returning int
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\airport.c(7): warning C4013: 'scanf' undefined; assuming extern returning int
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\airport.c(17): warning C4013: 'strcmp' undefined; assuming extern returning int
   Date.c
   Flight.c
   main.c
-c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   AirportManager.c
-c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Utill.c
-c:\users\afeka\desktop\homeproject_2\homeproject_2\utill.c(14): warning C4013: 'strlen' undefined; assuming extern returning int
-c:\users\afeka\desktop\homeproject_2\homeproject_2\utill.c(17): warning C4013: 'strcpy' undefined; assuming extern returning int
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\utill.c(14): warning C4013: 'strlen' undefined; assuming extern returning int
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\utill.c(17): warning C4013: 'strcpy' undefined; assuming extern returning int
   Generating Code...
-  HomeProject_2.vcxproj -> C:\Users\afeka\Desktop\HomeProject_2\x64\Debug\HomeProject_2.exe
+c:\users\afeka\desktop\new folder\homeproject_2\homeproject_2\main.c(41): warning C4716: 'a': must return a value
+  HomeProject_2.vcxproj -> C:\Users\afeka\Desktop\New folder\HomeProject_2\x64\Debug\HomeProject_2.exe
