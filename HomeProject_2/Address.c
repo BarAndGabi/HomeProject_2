@@ -3,7 +3,7 @@
 #include <string.h>
 int initAddress(Address *pA)
 { 
-	 pA->country = createDynStr("country name");
+	pA->country = createDynStr("country name");
 	pA->city = createDynStr("city name");
 	pA->street = createDynStr("street name");
 	printf("\nEnter house number:\n");
