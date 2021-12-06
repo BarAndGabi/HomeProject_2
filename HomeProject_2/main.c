@@ -12,13 +12,17 @@ void printOptions()
 	printf("option 1 - add Flight to AirLine.\n");
 	printf("option 2 - add Airport to airportManage.\n");
 	printf("option 3 - print AirLine properties.\n");
-	printf("option 1 - add flight to airLine.\n");
-	printf("option 1 - add flight to airLine.\n");
+	printf("option 1 - printAirportManager.\n");
+	printf("option 1 - printNumOfFilghtsFromAirport.\n");
 	printf("option 1 - add flight to airLine.\n");
 	printf("option 1 - add flight to airLine.\n");
 	printf("option 1 - add flight to airLine.\n");
 
 
+}
+int printNumOfFilghtsFromAirport(AirLine* l)
+{
+	return 0;
 }
 int addFlightToAirLine(AirLine* l)
 {
@@ -55,14 +59,14 @@ int choosenInit(int choosen, AirportManager* m, AirLine* l)
 	{
 	case 1:
 		if (!addFlightToAirLine(l))
-		printf("error in case 1\n");
+			printf("error in case 1\n");
 		break;
 	case 2:
 		if (!addAirportToAirportManager(m))
 			printf("error in case 2\n");
 		break;
 	case 3:
-		if (!printAirline(l))
+		if (!printAirLine(l))
 			printf("error in case 3\n");
 		break;
 	case 4:
@@ -70,7 +74,7 @@ int choosenInit(int choosen, AirportManager* m, AirLine* l)
 			printf("error in case 4\n");
 		break;
 	case 5:
-		if (!addAirportToAirportManager(m))
+		if (!printNumOfFilghtsFromAirport(l))
 			printf("error in case 5\n");
 		break;
 	case 6:
