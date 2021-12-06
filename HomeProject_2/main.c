@@ -5,9 +5,10 @@
 #include "Utill.h"
 #include "AirportManager.h"
 #include "AirLine.h"
+
 void printOptions()
 {
-	printf("intro");
+	printf("intro\n");
 	printf("option 1 - add Flight to AirLine.\n");
 	printf("option 2 - add Airport to airportManage.\n");
 	printf("option 3 - print AirLine properties.\n");
@@ -18,6 +19,22 @@ void printOptions()
 	printf("option 1 - add flight to airLine.\n");
 
 
+}
+int addFlightToAirLine(AirLine* l)
+{
+	return 0;
+}
+int addAirportToAirportManager(AirportManager* m)
+{
+	return 0;
+}
+int printAirLine(AirLine* l)
+{
+	return 0;
+}
+int printAirportManager(AirportManager* m)
+{
+	return 0;
 }
 int menu(int* pC)
 {
@@ -32,23 +49,37 @@ int menu(int* pC)
 	return 1;
 }
 
-int choosenInit(int choosen)
+int choosenInit(int choosen, AirportManager* m, AirLine* l)
 {
 	switch (choosen)
 	{
 	case 1:
+		if (!addFlightToAirLine(l))
+		printf("error in case 1\n");
 		break;
 	case 2:
+		if (!addAirportToAirportManager(m))
+			printf("error in case 2\n");
 		break;
 	case 3:
+		if (!printAirline(l))
+			printf("error in case 3\n");
 		break;
 	case 4:
+		if (!printAirportManager(m))
+			printf("error in case 4\n");
 		break;
 	case 5:
+		if (!addAirportToAirportManager(m))
+			printf("error in case 5\n");
 		break;
 	case 6:
+		if (!addAirportToAirportManager(m))
+			printf("error in case 6\n");
 		break;
 	case 7:
+		if (!addAirportToAirportManager(m))
+			printf("error in case 7\n");
 		break;
 	case 8:
 		printf("exiting program.......\n");
@@ -70,7 +101,7 @@ void main()
 	while (choise == 0)
 	{
 		menu(&choise);
-		choosenInit(choise);
+		choosenInit(choise, &m1, &l1);
 		if (choise != 8)
 			choise = 0;
 	}
