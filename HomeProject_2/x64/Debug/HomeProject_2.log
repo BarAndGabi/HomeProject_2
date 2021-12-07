@@ -1,5 +1,6 @@
 ﻿  Address.c
   AirLine.c
+  Airplane.c
   AirPort.c
 c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.h(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\afeka\desktop\homeproject_2\homeproject_2\airport.c(5): warning C4013: 'printf' undefined; assuming extern returning int
@@ -16,5 +17,6 @@ c:\users\afeka\desktop\homeproject_2\homeproject_2\airportmanager.c(6): warning 
   Utill.c
 c:\users\afeka\desktop\homeproject_2\homeproject_2\utill.c(14): warning C4013: 'strlen' undefined; assuming extern returning int
 c:\users\afeka\desktop\homeproject_2\homeproject_2\utill.c(17): warning C4013: 'strcpy' undefined; assuming extern returning int
+c:\users\afeka\desktop\homeproject_2\homeproject_2\utill.c(26): warning C4013: 'isupper' undefined; assuming extern returning int
   Generating Code...
   HomeProject_2.vcxproj -> C:\Users\afeka\Desktop\HomeProject_2\x64\Debug\HomeProject_2.exe

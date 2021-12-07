@@ -4,10 +4,10 @@
 
 typedef struct
 {
-	char *country;
-	char *city;
-	char *street;
-	int houseNumber;
+	char* country;
+	char* city;
+	char* street;
+	char* houseNumber; 
 } Address;
 
 int initAddress(Address *pA);

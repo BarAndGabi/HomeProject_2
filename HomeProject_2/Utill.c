@@ -18,3 +18,12 @@ char *createDynStr(const char *msg)
 
 	return str;
 }
+
+int isUpperCase(const char* str)
+{
+	int length = strlen(str);
+	for (int i = 0; i < length; i++)
+		if (isupper(str[i]) != 1)
+			return 0;
+	return 1;
+}

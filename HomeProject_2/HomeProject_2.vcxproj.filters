@@ -39,6 +39,9 @@
     <ClCompile Include="Utill.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Airplane.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AirPort.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Airplane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

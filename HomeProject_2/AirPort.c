@@ -4,7 +4,6 @@ int initAirport(Airport * pAirport)
 {
 	printf("You are about to init Airport get ready:\n");
 	printf("Enter Airpot name:\n ");
-	scanf("%s", pAirport->airportName);
 	printf("Please init Addres :\n");
 	return 0;
 }

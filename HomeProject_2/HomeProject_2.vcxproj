@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="Address.c" />
     <ClCompile Include="AirLine.c" />
+    <ClCompile Include="Airplane.c" />
     <ClCompile Include="AirPort.c" />
     <ClCompile Include="Date.c" />
     <ClCompile Include="Flight.c" />
@@ -127,6 +128,7 @@
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="AirLine.h" />
+    <ClInclude Include="Airplane.h" />
     <ClInclude Include="AirPort.h" />
     <ClInclude Include="AirportManager.h" />
     <ClInclude Include="Date.h" />

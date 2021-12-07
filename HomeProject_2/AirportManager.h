@@ -5,7 +5,8 @@
 
 typedef struct
 {
-	int a;
+	Airport* airports;
+	int AirportsCounter;
 } AirportManager;
 
 int initAirportManager(AirportManager *pAirportManager);
