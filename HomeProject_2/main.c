@@ -12,35 +12,42 @@ void printOptions()
 	printf("option 1 - add Flight to AirLine.\n");
 	printf("option 2 - add Airport to airportManage.\n");
 	printf("option 3 - print AirLine properties.\n");
-	printf("option 1 - printAirportManager.\n");
-	printf("option 1 - printNumOfFilghtsFromAirport.\n");
-	printf("option 1 - add flight to airLine.\n");
-	printf("option 1 - add flight to airLine.\n");
-	printf("option 1 - add flight to airLine.\n");
+	printf("option 4 - printAirportManager.\n");
+	printf("option 5 - printNumOfFilghtsFromAirport.\n");
+	printf("option 6 - printFilghtsWithAirplaneCode.\n");
+	printf("option 7 - printFilghtsWithAirplaneKind.\n");
+	printf("option 8 - exit program.\n");
+}
 
-
-}
-int printNumOfFilghtsFromAirport(AirLine* l)
+int printFilghtsWithAirplaneKind(AirportManager *m)
 {
 	return 0;
 }
-int addFlightToAirLine(AirLine* l)
+int printNumOfFlightsFromAirport(AirLine* l)
 {
 	return 0;
 }
-int addAirportToAirportManager(AirportManager* m)
+int printFilghtsWithAirplaneCode(AirportManager *m)
 {
 	return 0;
 }
-int printAirLine(AirLine* l)
+int addFlightToAirLine(AirLine *l)
 {
 	return 0;
 }
-int printAirportManager(AirportManager* m)
+int addAirportToAirportManager(AirportManager *m)
 {
 	return 0;
 }
-int menu(int* pC)
+int printAirLine(AirLine *l)
+{
+	return 0;
+}
+int printAirportManager(AirportManager *m)
+{
+	return 0;
+}
+int menu(int *pC)
 {
 	printOptions();
 	scanf("%d", pC);
@@ -53,7 +60,7 @@ int menu(int* pC)
 	return 1;
 }
 
-int choosenInit(int choosen, AirportManager* m, AirLine* l)
+int choosenInit(int choosen, AirportManager *m, AirLine *l)
 {
 	switch (choosen)
 	{
@@ -74,15 +81,15 @@ int choosenInit(int choosen, AirportManager* m, AirLine* l)
 			printf("error in case 4\n");
 		break;
 	case 5:
-		if (!printNumOfFilghtsFromAirport(l))
+		if (!printNumOfFlightsFromAirport(l))
 			printf("error in case 5\n");
 		break;
 	case 6:
-		if (!addAirportToAirportManager(m))
+		if (!printFilghtsWithAirplaneCode(m))
 			printf("error in case 6\n");
 		break;
 	case 7:
-		if (!addAirportToAirportManager(m))
+		if (!printFilghtsWithAirplaneKind(m))
 			printf("error in case 7\n");
 		break;
 	case 8:
