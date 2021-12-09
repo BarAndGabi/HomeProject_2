@@ -18,35 +18,37 @@ void printOptions()
 	printf("option 7 - printFilghtsWithAirplaneKind.\n");
 	printf("option 8 - exit program.\n");
 }
-
+//case 1;
 int printFilghtsWithAirplaneKind(AirportManager *m)
 {
 	return 0;
 }
+//case 2;
 int printNumOfFlightsFromAirport(AirLine* l)
 {
 	return 0;
 }
+//case 3;
 int printFilghtsWithAirplaneCode(AirportManager *m)
 {
 	return 0;
 }
+//case 4;
 int addFlightToAirLine(AirLine *l)
 {
 	return 0;
 }
+//case 5;
 int addAirportToAirportManager(AirportManager *m)
 {
 	return 0;
 }
+//case 6;
 int printAirLine(AirLine *l)
 {
 	return 0;
 }
-int printAirportManager(AirportManager *m)
-{
-	return 0;
-}
+
 int menu(int *pC)
 {
 	printOptions();
@@ -77,8 +79,7 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 			printf("error in case 3\n");
 		break;
 	case 4:
-		if (!printAirportManager(m))
-			printf("error in case 4\n");
+		printAirportManager(m);
 		break;
 	case 5:
 		if (!printNumOfFlightsFromAirport(l))
@@ -105,16 +106,19 @@ void main()
 	AirportManager m1;
 	AirLine l1;
 	int choise = 0;
-	if (!initAirportManager(&m1))
-		printf("Error\n");
-	if (!initAirLine(&l1))
-		printf("Error\n");
 	while (choise == 0)
 	{
-		menu(&choise);
-		choosenInit(choise, &m1, &l1);
-		if (choise != 8)
-			choise = 0;
+		if (menu(&choise))
+		{
+			if (choise != 8)
+			{
+				choosenInit(choise, &m1, &l1);
+				choise = 0;
+			}
+			else
+				printf("\nthank you \n bye. \n ");
+		}
+
 	}
 	system("pause");
 }

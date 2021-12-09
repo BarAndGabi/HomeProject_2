@@ -1,5 +1,4 @@
-#ifndef _DATE
-#define _DATE
+
 typedef struct
 {
 	int day;
