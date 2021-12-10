@@ -1,3 +1,4 @@
+#pragma once
 
 typedef struct
 {
@@ -6,7 +7,5 @@ typedef struct
 	int year;
 } Date;
 
-int initDate(Date *pD);
+int initDate(Date * pD, int Day, int Month, int Year);
 void printDate(Date *pD);
-
-#endif // !_DATE

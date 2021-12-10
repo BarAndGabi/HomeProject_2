@@ -6,3 +6,4 @@ int initDate(Date * pD,int Day,int Month,int Year)
 	pD->month = Month;
 	pD->year = Year;
 }
+
