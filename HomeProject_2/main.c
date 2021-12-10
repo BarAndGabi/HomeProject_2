@@ -32,12 +32,12 @@ int printNumOfFlightsFromAirport(AirLine* l)
 //case 3;
 int printFilghtsWithAirplaneCode(AirportManager *m)
 {
-	
+	return 0;
 }
 //case 4;
 int addFlightToAirLine(AirLine *l)
 {
-	if(!addFlight)
+	if(!addFlight(l))
 	return 0;
 
 	return 1;

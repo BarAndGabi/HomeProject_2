@@ -1,5 +1,6 @@
 #include "Flight.h"
 
+
 int initFlight(Flight * pF)
 {
 	if (!(pF->airportSourceName = createDynStr("Enter source name")))
@@ -19,9 +20,13 @@ void PrintFlight(Flight * pF)
 	printAirplane(&pF->airplaneDetails);
 }
 
-void freeFlight(Flight * pF)
+int freeFlight(Flight * pF)
 {
-	freeDate(pF->date);
+	Date freedate1 = pF->date;
+	if (!freeDate(&freedate1))
+		return 0;
+	return 1;
+
 }
 
 int isFlightFromSourceName(Flight * pF, const char * sourceName)

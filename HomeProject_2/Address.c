@@ -9,9 +9,10 @@ int initAddress(Address *pA)
 	pA->country = createDynStr("country name");
 	pA->city = createDynStr("city name");
 	pA->street = createDynStr("street name");
-	printf("\nenter house number : ");
+	printf("enter house number : ");
 	scanf("%d", &pA->houseNumber);
-	return 0;
+	printf("\n");
+	return 1;
 }
 
 void printAddress(Address *pA)
