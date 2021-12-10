@@ -1,5 +1,7 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "AirPort.h"
 #include "Address.h"
+#include"Utill.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -10,12 +12,12 @@ int initAirport(Airport * pAirport)
 	printf("Enter Airpot name:\n ");
 	pAirport->airportName = createDynStr("Enter airport name");
 	printf("Please init Addres :\n");
-	Address* pAddress = (Address*)malloc(sizeof(Address));
-	if (!initAddress(pAddress)) {
-		free(pAddress);
+	Address pAddress;
+	if (!initAddress(&pAddress)) {
+		free(&pAddress);
 		return 0;
 	}
-	pAirport->airportAddress = *pAddress;
+	pAirport->airportAddress = pAddress;
 	return 1;
 }
 
@@ -34,7 +36,7 @@ void freeAirport(Airport * pAirport)
 
 int isSameAirport(const Airport * e1, const Airport * e2)
 {
-	if ((strcmp(&e1->airportName, &e1->airportName)) == 0)
+	if ((strcmp(e1->airportName,e1->airportName)) == 0)
 		return 0;
 	if ((compareAddress(&e1->airportAddress, &e2->airportAddress)) == 0)
 		return 0;
@@ -44,9 +46,9 @@ int isSameAirport(const Airport * e1, const Airport * e2)
 
 
 
-int isAirportName(Airport * pAirport, char* nameOfAirport)
+int isAirportName(const Airport * pAirport,const char* nameOfAirport)
 {
-	return strcmp(&pAirport->airportName, nameOfAirport);
+	return strcmp(pAirport->airportName, nameOfAirport);
 		
 }
 

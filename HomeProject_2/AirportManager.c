@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "AirportManager.h"
 #include "AirPort.h"
 #include <stdlib.h>
@@ -38,7 +40,7 @@ void printAirportManager(AirportManager * pAirportManager)
 	printf("The number of airports are:%d\n The airports are:\n",pAirportManager->airportsCounter);
 	for (size_t i = 0; i < pAirportManager->airportsCounter; i++)
 	{
-		printAirport(pAirportManager->airports[i]);
+		printAirport(&pAirportManager->airports[i]);
 	}
 }
 
@@ -46,30 +48,27 @@ void freeAirportManager(AirportManager * pAirportManager)
 {
 	for (size_t i = 0; i < pAirportManager->airportsCounter; i++)
 	{
-		freeAirport(pAirportManager->airports[i]);
-		free(pAirportManager->airports[i]);
+		freeAirport(&pAirportManager->airports[i]);
+		free(&pAirportManager->airports[i]);
 	}
 }
 
 int addAirport(AirportManager * pAirportManager)
 {
-	Airport* pA = (Airport*)malloc(sizeof(Airport));
-	if (!pA) {
+	Airport pA;
+	
+	if (!initAirport(&pA)) {
+		freeAirport(&pA);
+		free(&pA);
 		return 0;
 	}
 
-	if (!initAirport(pA)) {
-		freeAirport(pA);
-		free(pA);
-		return 0;
-	}
-
-	pAirportManager->airports = (Airport**)realloc(pAirportManager->airports, (pAirportManager->airportsCounter + 1)*sizeof(Airport*));
+	pAirportManager->airports = (Airport*)realloc(pAirportManager->airports, (pAirportManager->airportsCounter + 1)*sizeof(Airport));
 	if (!pAirportManager->airports) {
 		for (size_t i = 0; i < pAirportManager->airportsCounter; i++)
 		{
-			freeAirport(pAirportManager->airports[i]);
-			free(pAirportManager->airports[i]);
+			freeAirport(&pAirportManager->airports[i]);
+			free(&pAirportManager->airports[i]);
 		}
 		return 0;
 	}
@@ -79,17 +78,19 @@ int addAirport(AirportManager * pAirportManager)
 	return 1;
 }
 
-Airport * findAirportByName(char * airportName, AirportManager * pA)
+Airport * findAirportByName(const char * airportName,const AirportManager * pA)
 {
+	
 	for (size_t i = 0; i < pA->airportsCounter; i++)
 	{
-		if (isAirportName(pA->airports[i], airportName)) {
-			return pA->airports[i];
+		if (isAirportName(&pA->airports[i],airportName)) {
+			return &pA->airports[i];
 		}
-		else {
-			return NULL;
-		}
+		
 	}
+
+	return NULL;
+
 }
 
 

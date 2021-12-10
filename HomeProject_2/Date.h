@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stdio.h>
 typedef struct
 {
 	int day;

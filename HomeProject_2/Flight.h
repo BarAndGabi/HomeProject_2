@@ -1,5 +1,4 @@
-#ifndef _FLIGHT
-#define _FLIGHT
+#pragma once
 #include "Date.h"
 #include "Airplane.h"
 
@@ -11,5 +10,10 @@ typedef struct
 	Date date;
 } Flight;
 
-
-#endif // !_FLIGHT
+int initFligt(Flight* pF);
+void printFlight(Flight* pF);
+void freeFlight(Flight* pF);
+int isFlightFromSourceName(Flight* pF);
+int isFlightToDestName(Flight* pF);
+int isPlaneCodeInFlight(Flight* pF);
+int isPlaneTypeInFlight(Flight* pF);

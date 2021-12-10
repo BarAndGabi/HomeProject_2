@@ -1,5 +1,4 @@
-#ifndef _AIRLINE
-#define _AIRLINE
+#pragma once
 #include "Flight.h"
 typedef struct
 {
@@ -8,4 +7,3 @@ typedef struct
 
 int initAirLine(AirLine *pAirLine);
 
-#endif // !_AirLine
