@@ -7,5 +7,5 @@ typedef struct
 	int year;
 } Date;
 
-int initDate(Date * pD, int Day, int Month, int Year);
+void initDate(Date * pD, int Day, int Month, int Year);
 void printDate(Date *pD);

@@ -10,10 +10,10 @@ typedef struct
 	Date date;
 } Flight;
 
-int initFligt(Flight* pF);
-void printFlight(Flight* pF);
+int initFlight(Flight* pF);
+void PrintFlight(Flight* pF);
 void freeFlight(Flight* pF);
-int isFlightFromSourceName(Flight* pF);
-int isFlightToDestName(Flight* pF);
-int isPlaneCodeInFlight(Flight* pF);
-int isPlaneTypeInFlight(Flight* pF);
+int isFlightFromSourceName(Flight* pF,const char* sourceName);
+int isFlightToDestName(Flight* pF,const char* destinationName);
+int isPlaneCodeInFlight(Flight* pF,const char* planeCode);
+int isPlaneTypeInFlight(Flight* pF,const airplaneType type);

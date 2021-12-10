@@ -14,7 +14,7 @@ int initAirport(Airport * pAirport)
 	printf("Please init Addres :\n");
 	Address pAddress;
 	if (!initAddress(&pAddress)) {
-		free(&pAddress);
+		freeAddress(&pAddress);
 		return 0;
 	}
 	pAirport->airportAddress = pAddress;
@@ -30,7 +30,6 @@ void printAirport(Airport * pAirport)
 void freeAirport(Airport * pAirport)
 {
 	freeAddress(&pAirport->airportAddress);
-	free(&pAirport->airportAddress);
 	free(&pAirport->airportAddress);
 }
 
@@ -48,7 +47,10 @@ int isSameAirport(const Airport * e1, const Airport * e2)
 
 int isAirportName(const Airport * pAirport,const char* nameOfAirport)
 {
-	return strcmp(pAirport->airportName, nameOfAirport);
-		
+		int check=strcmp(pAirport->airportName, nameOfAirport);
+		if (check != 0)
+			return 0;
+
+		return 1;
 }
 

@@ -67,8 +67,8 @@ int addAirport(AirportManager * pAirportManager)
 	if (!pAirportManager->airports) {
 		for (size_t i = 0; i < pAirportManager->airportsCounter; i++)
 		{
-			freeAirport(&pAirportManager->airports[i]);
-			free(&pAirportManager->airports[i]);
+			freeAirport(&pA);
+			free(&pA);
 		}
 		return 0;
 	}
@@ -83,7 +83,7 @@ Airport * findAirportByName(const char * airportName,const AirportManager * pA)
 	
 	for (size_t i = 0; i < pA->airportsCounter; i++)
 	{
-		if (isAirportName(&pA->airports[i],airportName)) {
+		if (isAirportName(&pA->airports[i],airportName)==1) {
 			return &pA->airports[i];
 		}
 		

@@ -18,9 +18,10 @@ void printOptions()
 	printf("option 7 - printFilghtsWithAirplaneKind.\n");
 	printf("option 8 - exit program.\n");
 }
-//case 1;
+
 int printFilghtsWithAirplaneKind(AirportManager *m)
 {
+
 	return 0;
 }
 //case 2;
@@ -31,22 +32,23 @@ int printNumOfFlightsFromAirport(AirLine* l)
 //case 3;
 int printFilghtsWithAirplaneCode(AirportManager *m)
 {
-	return 0;
+	
 }
 //case 4;
 int addFlightToAirLine(AirLine *l)
 {
+	if(!addFlight)
 	return 0;
+
+	return 1;
 }
 //case 5;
 int addAirportToAirportManager(AirportManager *m)
 {
-	return 0;
-}
-//case 6;
-int printAirLine(AirLine *l)
-{
-	return 0;
+	if (!addAirport(m))
+		return 0;
+
+	return 1;
 }
 
 int menu(int *pC)
@@ -75,8 +77,7 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 			printf("error in case 2\n");
 		break;
 	case 3:
-		if (!printAirLine(l))
-			printf("error in case 3\n");
+		printAirLine(l);
 		break;
 	case 4:
 		printAirportManager(m);

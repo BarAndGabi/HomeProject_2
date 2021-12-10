@@ -29,7 +29,7 @@ void freeAddress(Address *pA)
 
 int compareAddress(const Address * pA1, const Address * pA2)
 {
-	int check[] = {0,0,0};
+	int check[] = {1,1,1};
 	if (pA1->houseNumber != pA2->houseNumber)
 		return 0;
 	check[0] = strcmp(pA1->city,pA2->city);
@@ -37,7 +37,7 @@ int compareAddress(const Address * pA1, const Address * pA2)
 	check[2] = strcmp(pA1->street, pA2->street);
 	for (size_t i = 0; i < 3; i++)
 	{
-		if (check[i] == 0)
+		if (check[i] != 0)
 			return 0;
 	}
 	return 1;
