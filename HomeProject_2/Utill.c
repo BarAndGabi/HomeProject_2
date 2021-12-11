@@ -11,10 +11,10 @@ char *createDynStr(const char *msg)
 	char *str;
 	char temp[255];
 	printf("Enter %s: ", msg);
-	gets("%s", temp);
-	while (strcmp(temp,"")==0) {
+	fgets(temp,255,stdin);
+	while (strcmp(temp, "") == 0) {
 		printf("You didn't enter anything enter again: ");
-		gets("%s", temp);
+		fgets(temp, 255, stdin);
 	}
 	str = (char *)malloc((strlen(temp) + 1) * sizeof(char));
 	if (!str)
@@ -30,6 +30,13 @@ int isUpperCase(const char* str)
 		if (isupper(str[i]) != 1)
 			return 0;
 	return 1;
+}
+
+void clearInputBuffer(void) {
+	int c;
+	do {
+		c = getchar();
+	} while (c != '\n');
 }
 
 

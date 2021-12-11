@@ -30,7 +30,7 @@ void printAirport(Airport * pAirport)
 void freeAirport(Airport * pAirport)
 {
 	free(&pAirport->airportAddress);
-	free(&pAirport->airportName);
+	free(pAirport->airportName);
 }
 
 int isSameAirport(const Airport * e1, const Airport * e2)
