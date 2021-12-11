@@ -25,9 +25,16 @@ int printFilghtsWithAirplaneKind(AirportManager *m)
 	return 0;
 }
 //case 2;
-int printNumOfFlightsFromAirport(AirLine* l)
+int printNumOfFlightsFromAirport(AirLine* l,AirportManager* m)
 {
-	return 0;
+	char* str=NULL;
+	printOnlyAirPortNames(m);
+	if (!(str = createDynStr("airport name")))
+		free(str);
+		return 0;
+	int n = doCountFlightsFromName(l, str);
+	printf("The num of flights from airport is:%d", n);
+	return 1;
 }
 //case 3;
 int printFilghtsWithAirplaneCode(AirportManager *m)
@@ -87,7 +94,7 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 		printAirportManager(m);
 		break;
 	case 5:
-		if (!printNumOfFlightsFromAirport(l))
+		if (!printNumOfFlightsFromAirport(l,m))
 			printf("error in case 5\n");
 		break;
 	case 6:

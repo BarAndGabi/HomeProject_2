@@ -9,6 +9,8 @@ int initFlight(Flight * pF,AirportManager* pA)
 	{
 		printAirport(&pA->airports[i]);
 	}
+	printOnlyAirPortNames(pA);
+
 	if (!(pF->airportSourceName = createDynStr("source name")))
 		if(findAirportByName(pF->airportSourceName,pA)==NULL)
 		return 0;
@@ -46,6 +48,7 @@ int freeFlight(Flight * pF)
 
 int isFlightFromSourceName(Flight * pF, const char * sourceName)
 {
+
 	if (strcmp(pF->airportSourceName, sourceName)==0)
 		return 1;
 

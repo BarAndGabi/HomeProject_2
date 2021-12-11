@@ -109,6 +109,17 @@ int checkIfEnoughAirports(AirportManager * pA)
 	return 0;
 }
 
+void printOnlyAirPortNames(AirportManager * pA)
+{
+	if (pA->airportsCounter == 0)
+		printf("There are no airports currently\n");
+
+	for (size_t i = 0; i < pA->airportsCounter; i++)
+	{
+		printf("Airport %zd is %s",i,pA->airports[i].airportName) ;
+	}
+}
+
 
 
 

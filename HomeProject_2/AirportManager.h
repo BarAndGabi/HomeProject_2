@@ -16,3 +16,4 @@ void freeAirportManager(AirportManager* pAirportManager);
 int addAirport(AirportManager* pAirportManager);
 Airport* findAirportByName(const char* airportName,const AirportManager* pA);
 int checkIfEnoughAirports(AirportManager* pA);
+void printOnlyAirPortNames(AirportManager* pA);
