@@ -1,11 +1,2 @@
-﻿  Address.c
-  AirLine.c
-  Airplane.c
-  AirPort.c
-  Date.c
-  Flight.c
-  main.c
-  AirportManager.c
-  Utill.c
-  Generating Code...
-  HomeProject_2.vcxproj -> C:\Users\afeka\Desktop\HomeProject_2\x64\Debug\HomeProject_2.exe
+﻿  Utill.c
+c:\users\lempe\eclipse-workspace\homeproject_2\homeproject_2\utill.c(14): warning C4013: 'gets' undefined; assuming extern returning int

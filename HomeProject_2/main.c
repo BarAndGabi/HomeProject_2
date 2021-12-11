@@ -45,7 +45,7 @@ int printFilghtsWithAirplaneKind(AirLine* l)
 int printFilghtsWithAirplaneCode(AirLine* l)
 {
 	char* str = NULL;
-	if (!(str = createDynStr("airport name")))
+	if (!(str = createDynStr("airport code")))
 	{
 		free(str);
 		return 0;

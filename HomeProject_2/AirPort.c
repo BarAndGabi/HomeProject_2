@@ -10,7 +10,7 @@ int initAirport(Airport * pAirport)
 {
 	printf("You are about to init Airport get ready:\n");
 	pAirport->airportName = createDynStr("airport name");
-	printf("Please init Addres :\n");
+	printf("Please init Address:\n");
 	Address pAddress;
 	if (!initAddress(&pAddress))
 	{

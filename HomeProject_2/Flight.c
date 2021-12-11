@@ -27,7 +27,7 @@ int initFlight(Flight * pF,AirportManager* pA)
 
 void PrintFlight(Flight * pF)
 {
-	printf("Flight from %s to %s ", pF->airportSourceName, pF->airportDestinationName);
+	printf("Flight from %s to %s :\n", pF->airportSourceName, pF->airportDestinationName);
 	printDate(&pF->date);
 	printAirplane(&pF->airplaneDetails);
 }

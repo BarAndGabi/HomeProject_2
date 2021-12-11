@@ -11,16 +11,15 @@ char *createDynStr(const char *msg)
 	char *str;
 	char temp[255];
 	printf("Enter %s: ", msg);
-	scanf("%s", temp);
+	gets("%s", temp);
 	while (strcmp(temp,"")==0) {
 		printf("You didn't enter anything enter again: ");
-		scanf("%s", temp);
+		gets("%s", temp);
 	}
 	str = (char *)malloc((strlen(temp) + 1) * sizeof(char));
 	if (!str)
 		return NULL;
 	strcpy(str, temp);
-
 	return str;
 }
 

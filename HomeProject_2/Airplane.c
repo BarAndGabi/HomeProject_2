@@ -25,7 +25,7 @@ void initAirplane(Airplane *pAirplane)
 
 void printAirplane(Airplane * pAirplane)
 {
-	printf("Plane:%s,%s",types[pAirplane->type], pAirplane->code);
+	printf("Plane:type %s,%s\n",types[pAirplane->type], pAirplane->code);
 }
 
 int checkCorrectCode(char* string)

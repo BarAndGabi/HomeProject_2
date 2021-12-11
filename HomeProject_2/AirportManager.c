@@ -67,8 +67,11 @@ int addAirport(AirportManager * pAirportManager)
 		free(&pA);
 		return 0;
 	}
-	if ((findAirportByName(pA.airportName, pAirportManager) != NULL)) {
-		printf("There is an airport with this name");
+	if ((findAirportByName(pA.airportName, pAirportManager) != NULL)) 
+	{
+		freeAirport(&pA);
+		free(&pA);
+		printf("There is an airport with this name\n");
 
 	}
 
