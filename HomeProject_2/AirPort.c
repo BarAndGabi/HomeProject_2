@@ -17,20 +17,20 @@ int initAirport(Airport * pAirport)
 		freeAddress(&pAddress);
 		return 0;
 	}
-	pAirport->airportAddress = pAddress;
+	pAirport->airportAddress = addressBuffer(&pAddress);
 	return 1;
 }
 
 void printAirport(Airport * pAirport)
 {
 	printf("The Airport name is:%s\n", pAirport->airportName);
-	printAddress(&(pAirport->airportAddress));
+	printAddress(pAirport->airportAddress);
 }
 
 void freeAirport(Airport * pAirport)
 {
-	freeAddress(&pAirport->airportAddress);
 	free(&pAirport->airportAddress);
+	free(&pAirport->airportName);
 }
 
 int isSameAirport(const Airport * e1, const Airport * e2)

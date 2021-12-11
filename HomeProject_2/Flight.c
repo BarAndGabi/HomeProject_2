@@ -7,13 +7,13 @@ int initFlight(Flight * pF,AirportManager* pA)
 
 	for (size_t i = 0; i < pA->airportsCounter; i++)
 	{
-		printAirportManager(&pA->airports[i]);
+		printAirport(&pA->airports[i]);
 	}
 	if (!(pF->airportSourceName = createDynStr("source name")))
-		if(findAirportByName(pA,pF->airportSourceName)==NULL)
+		if(findAirportByName(pF->airportSourceName,pA)==NULL)
 		return 0;
 	if (!(pF->airportDestinationName = createDynStr("destination name"))) 
-		if (findAirportByName(pA, pF->airportDestinationName) == NULL)
+		if (findAirportByName( pF->airportDestinationName,pA) == NULL)
 		return 0;
 	Airplane newAirplane;
 	initAirplane(&newAirplane);

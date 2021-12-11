@@ -5,7 +5,7 @@
 typedef struct
 {
 	char *airportName;
-	Address airportAddress;
+	char* airportAddress;
 } Airport;
 
 int initAirport(Airport *pAirport);
