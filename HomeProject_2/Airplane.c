@@ -9,10 +9,16 @@ void initAirplane(Airplane *pAirplane)
 	pAirplane->type = getTypeFromUser();
 
 	char* temp = createDynStr("the code");
+	if (!temp) {
+		free(temp);
+	}
 	while (!checkCorrectCode(temp))
 	{
 		free(temp);
 		temp = createDynStr("code again please");
+		if (!temp) {
+		free(temp);
+		}
 	}
 	strcpy(pAirplane->code, temp);;
 }

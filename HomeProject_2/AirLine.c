@@ -36,6 +36,7 @@ int addFlight(AirLine * pAirLine,AirportManager* pAirportManager )
 		free(pF);
 	}
 	pAirLine->allFlights = (Flight**)realloc(pAirLine->allFlights, (pAirLine->numberOfFlights + 1) * sizeof(Flight*));
+	
 	if (!pAirLine->allFlights)
 	{
 		for (int i = 0; i < pAirLine->numberOfFlights; i++)

@@ -4,11 +4,6 @@
 int initFlight(Flight * pF,AirportManager* pA)
 {
 	printf("This are the airports available:\n");
-
-	for (size_t i = 0; i < pA->airportsCounter; i++)
-	{
-		printAirport(&pA->airports[i]);
-	}
 	printOnlyAirPortNames(pA);
 
 	if (!(pF->airportSourceName = createDynStr("source name")))

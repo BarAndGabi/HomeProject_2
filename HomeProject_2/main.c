@@ -19,27 +19,50 @@ void printOptions()
 	printf("option 8 - exit program.\n");
 }
 
-int printFilghtsWithAirplaneKind(AirportManager *m)
+int printFilghtsWithAirplaneKind(AirLine* l)
 {
 
-	return 0;
-}
+	
+	doPrintFlightsWithPlaneType(l,getTypeFromUser());
+	return 1;
+	}
 //case 2;
-int printNumOfFlightsFromAirport(AirLine* l,AirportManager* m)
-{
-	char* str=NULL;
-	printOnlyAirPortNames(m);
-	if (!(str = createDynStr("airport name")))
-		free(str);
-		return 0;
+	int printNumOfFlightsFromAirport(AirLine* l, AirportManager* m)
+    {
+		char* str = NULL;
+		printOnlyAirPortNames(m);
+		if (!(str = createDynStr("airport name")))
+		{
+			free(str);
+		    return 0;
+	    }
 	int n = doCountFlightsFromName(l, str);
+	free(str);
 	printf("The num of flights from airport is:%d", n);
 	return 1;
-}
+    }
 //case 3;
-int printFilghtsWithAirplaneCode(AirportManager *m)
+int printFilghtsWithAirplaneCode(AirLine* l)
 {
-	return 0;
+	char* str = NULL;
+	if (!(str = createDynStr("airport name")))
+	{
+		free(str);
+		return 0;
+	}
+	while (checkCorrectCode(str) == 0)
+	{
+		free(str);
+		str = createDynStr("code again please");
+		if (!str)
+		{
+			free(str);
+			return 0;
+		}
+	}
+	doPrintFlightsWithPlaneCode(l, str);
+	free(str);
+	return 1;
 }
 //case 4;
 int addFlightToAirLine(AirLine *l,AirportManager* m)
@@ -98,11 +121,11 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 			printf("error in case 5\n");
 		break;
 	case 6:
-		if (!printFilghtsWithAirplaneCode(m))
+		if (!printFilghtsWithAirplaneCode(l))
 			printf("error in case 6\n");
 		break;
 	case 7:
-		if (!printFilghtsWithAirplaneKind(m))
+		if (!printFilghtsWithAirplaneKind(l))
 			printf("error in case 7\n");
 		break;
 	case 8:
