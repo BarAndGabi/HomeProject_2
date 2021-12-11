@@ -8,7 +8,7 @@
 
 void printOptions()
 {
-	printf("intro\n");
+	printf("choose one of the followings\n ");
 	printf("option 1 - add Flight to AirLine.\n");
 	printf("option 2 - add Airport to airportManage.\n");
 	printf("option 3 - print AirLine properties.\n");

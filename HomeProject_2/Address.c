@@ -113,8 +113,7 @@ char *addressBuffer(Address *pA)
 	addToStr = addDiezBetween(pA->street);
 	checkAtrribute(pA, fullAddress, addToStr);
 	sprintf(addToStr, "%d", pA->houseNumber);
-	fullAddress = (char *)realloc(fullAddress, (strlen(fullAddress) + strlen(addToStr) + 2) * sizeof(char));
-	strcat(fullAddress, addToStr);
+	checkAtrribute(pA, fullAddress, addToStr);
 	return fullAddress;
 }
 void printAddress(const char *address)
