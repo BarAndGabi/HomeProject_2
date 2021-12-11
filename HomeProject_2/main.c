@@ -35,11 +35,15 @@ int printFilghtsWithAirplaneCode(AirportManager *m)
 	return 0;
 }
 //case 4;
-int addFlightToAirLine(AirLine *l)
+int addFlightToAirLine(AirLine *l,AirportManager* m)
 {
-	if(!addFlight(l))
+	if (checkIfEnoughAirports(m) == 0)
+	{
+		printf("don't have enough airports\n");
 	return 0;
-
+    }
+	if(!addFlight(l,m))
+	return 0;
 	return 1;
 }
 //case 5;
@@ -69,7 +73,7 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 	switch (choosen)
 	{
 	case 1:
-		if (!addFlightToAirLine(l))
+		if (!addFlightToAirLine(l,m))
 			printf("error in case 1\n");
 		break;
 	case 2:
@@ -96,6 +100,8 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 		break;
 	case 8:
 		printf("exiting program.......\n");
+		freeAirportManager(m);
+		freeAirLine(l);
 		break;
 	default:
 		return 0;
@@ -105,7 +111,10 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 void main()
 {
 	AirportManager m1;
+	initAirportManager(&m1);
+	checkFromUser(&m1);
 	AirLine l1;
+	initAirLine(&l1);
 	int choise = 0;
 	while (choise == 0)
 	{

@@ -1,6 +1,8 @@
 #pragma once
 #include "Date.h"
 #include "Airplane.h"
+#include "AirportManager.h"
+
 
 typedef struct
 {
@@ -10,7 +12,7 @@ typedef struct
 	Date date;
 } Flight;
 
-int initFlight(Flight* pF);
+int initFlight(Flight* pF,AirportManager* pA);
 void PrintFlight(Flight* pF);
 int freeFlight(Flight* pF);
 int isFlightFromSourceName(Flight* pF,const char* sourceName);

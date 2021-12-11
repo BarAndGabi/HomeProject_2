@@ -1,17 +1,32 @@
 #include "Flight.h"
 
 
-int initFlight(Flight * pF)
+int initFlight(Flight * pF,AirportManager* pA)
 {
-	if (!(pF->airportSourceName = createDynStr("Enter source name")))
+	printf("This are the airports available:\n");
+
+	for (size_t i = 0; i < pA->airportsCounter; i++)
+	{
+		printAirportManager(&pA->airports[i]);
+	}
+	if (!(pF->airportSourceName = createDynStr("source name")))
+		if(findAirportByName(pA,pF->airportSourceName)==NULL)
 		return 0;
-	if (!(pF->airportDestinationName = createDynStr("Enter destination name"))) 
+	if (!(pF->airportDestinationName = createDynStr("destination name"))) 
+		if (findAirportByName(pA, pF->airportDestinationName) == NULL)
 		return 0;
 	Airplane newAirplane;
 	initAirplane(&newAirplane);
 	pF->airplaneDetails = newAirplane;
+	Date newDate;
+	if (!initDate(&newDate)) {
+		freeDate(&newDate);
+		return 0;
+	}
+	pF->date = newDate;
 	return 1;
 }
+
 
 void PrintFlight(Flight * pF)
 {

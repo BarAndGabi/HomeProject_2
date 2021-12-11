@@ -1,10 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "AirLine.h"
-
 int initAirLine(AirLine * pAirLine)
 {
 	pAirLine->numberOfFlights = 0;
-	if (!(pAirLine->name = createDynStr("Enter airline name"))) {
+	if (!(pAirLine->name = createDynStr("airline name"))) {
 		free(pAirLine->name);
 			return 0;
 	}
@@ -24,14 +23,15 @@ void printAirLine(AirLine* pAirLine) {
 	}
 }
 
-int addFlight(AirLine * pAirLine)
+int addFlight(AirLine * pAirLine,AirportManager* pAirportManager )
 {
 	Flight* pF = (Flight*)malloc(sizeof(Flight));
 	if (!pF) {
 		free(pF);
 		return 0;
 	}
-	if (!initFlight(pF)) {
+
+	if (!initFlight(pF,pAirportManager)) {
 		freeFlight(pF);
 		free(pF);
 	}
@@ -88,6 +88,15 @@ int doCountFlightsFromName(AirLine * pAirLine,const char* name)
 			counter++;
 	}
 	return counter;
+}
+
+void freeAirLine(AirLine * pAirLine)
+{
+	for (size_t i = 0; i < pAirLine->numberOfFlights; i++)
+	{
+		freeFlight(pAirLine->allFlights[i]);
+		free(pAirLine->allFlights);
+	}
 }
 
 

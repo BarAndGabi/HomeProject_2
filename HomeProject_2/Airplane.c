@@ -1,17 +1,20 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Airplane.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+const char* types[eNofTypes]={ "Passangers", "Cargo","Military"};
 void initAirplane(Airplane *pAirplane)
 {
 	pAirplane->type = getTypeFromUser();
-	printf("Enter the code: ");
-	char* string=NULL;
-	scanf("%s", string);
-	while (!checkCorrectCode(string))
+
+	char* temp = createDynStr("the code");
+	while (!checkCorrectCode(temp))
 	{
-		printf("Error,please enter code again");
-		scanf("%s", string);
+		free(temp);
+		temp = createDynStr("code again please");
 	}
-	strcpy(pAirplane->code, string);
+	strcpy(pAirplane->code, temp);;
 }
 
 void printAirplane(Airplane * pAirplane)
@@ -33,7 +36,7 @@ int checkCorrectCode(char* string)
 airplaneType getTypeFromUser()
 {
 	int i, t;
-	printf("Enter airplane type\n");
+	printf("Enter airplane type:\n");
 	do {
 		for (i = 0; i < eNofTypes; i++)
 			printf("Enter %d for %s\n", i, types[i]);

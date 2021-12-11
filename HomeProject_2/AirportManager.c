@@ -9,11 +9,16 @@
 
 int initManagerMenu()
 {
-	int choise;
+	char choise;
 	printf("enter 1 if you wish to add airport , enything else will abort\n");
-	scanf("%d", &choise);
-	if (choise == 1)
+	scanf("%c", &choise);
+	while (choise =='\n') {
+		printf("you didnt enter anything enter a choise again:\n");
+		scanf("%c", &choise);
+	}
+	if (choise == '1')
 		return 1;
+
 	else
 		return 0;
 }
@@ -62,6 +67,10 @@ int addAirport(AirportManager * pAirportManager)
 		free(&pA);
 		return 0;
 	}
+	if ((findAirportByName(pA.airportName, pAirportManager) != NULL)) {
+		printf("There is an airport with this name");
+
+	}
 
 	pAirportManager->airports = (Airport*)realloc(pAirportManager->airports, (pAirportManager->airportsCounter + 1)*sizeof(Airport));
 	if (!pAirportManager->airports) {
@@ -92,6 +101,14 @@ Airport * findAirportByName(const char * airportName,const AirportManager * pA)
 	return NULL;
 
 }
+
+int checkIfEnoughAirports(AirportManager * pA)
+{
+	if (pA->airportsCounter > 1)
+		return 1;
+	return 0;
+}
+
 
 
 
