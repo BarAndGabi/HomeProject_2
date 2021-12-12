@@ -17,8 +17,8 @@ int initFlight(Flight * pF,AirportManager* pA)
 	}
 	if (checkDest(pF, pA) == 0)
 		return 0;
-
-
+	removeChar(pF->airportSourceName, '\n');
+	removeChar(pF->airportDestinationName, '\n');
 	Airplane newAirplane;
 	initAirplane(&newAirplane);
 	pF->airplaneDetails = newAirplane;
@@ -35,7 +35,9 @@ int initFlight(Flight * pF,AirportManager* pA)
 
 void PrintFlight(Flight * pF)
 {
-	printf("Flight from %s to %s :\n", pF->airportSourceName, pF->airportDestinationName);
+	removeChar(pF->airportSourceName, '\n');
+	removeChar(pF->airportDestinationName, '\n');
+	printf("\nFlight from %s to %s :\n", pF->airportSourceName, pF->airportDestinationName);
 	printDate(&pF->date);
 	printAirplane(&pF->airplaneDetails);
 }
@@ -49,9 +51,10 @@ int freeFlight(Flight * pF)
 
 }
 
-int isFlightFromSourceName(Flight * pF, const char * sourceName)
+int isFlightFromSourceName(Flight * pF, const char * name)
 {
-	if (strcmp(pF->airportSourceName, sourceName)==0)
+	removeChar(name, '\n');
+	if (strcmp(pF->airportSourceName, name)==0)
 		return 1;
 
 	return 0;
@@ -67,8 +70,9 @@ int isFlightToDestName(Flight * pF, const char * destinationName)
 
 int isPlaneCodeInFlight(Flight * pF, const char * planeCode)
 {
-	if(strcmp(pF->airplaneDetails.code, planeCode)==0);
+	if(strcmp(pF->airplaneDetails.code, planeCode)==0)
  	  return 1;
+	  return 0;
 }
 
 int isPlaneTypeInFlight(Flight * pF, const airplaneType type)
@@ -89,11 +93,21 @@ int checkSource(Flight * pF, AirportManager * pA)
 	return 1;
 }
 
-int checkDest(Flight* pF,AirportManager* pA) {
-	while (findAirportByName(pF->airportSourceName, pA) == NULL) {
+int checkDest(Flight* pF,AirportManager* pA)
+{
+	while (findAirportByName(pF->airportDestinationName, pA) == NULL) {
 			printf("There isn't an airport with this name\n");
-			if (!(pF->airportDestinationName = createDynStr("source name")))
+			if (!(pF->airportDestinationName = createDynStr("Destenation")))
 				return 0;
 		}
+	while (isFlightFromSourceName(pF, pF->airportDestinationName) ) {
+		printf("choose diffrent from source\n");
+		if (!(pF->airportDestinationName = createDynStr("destenation")));
+			return 0;
+	}
+	
+
 	return 1;
 }
+
+

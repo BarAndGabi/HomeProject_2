@@ -9,14 +9,14 @@
 int initManagerMenu()
 {
 	char choise;
-	printf("enter 1 if you wish to add airport , enything else will abort\n");
+	printf("enter y if you wish to add airport , enything else will abort\n");
 	scanf("%c", &choise);
 	while (choise =='\n') {
 		clearInputBuffer();
 		printf("you didnt enter anything enter a choise again:\n");
 		scanf("%c", &choise);
 	}
-	if (choise == '1') {
+	if (choise == 'y') {
 		clearInputBuffer();
 		return 1;
 	}

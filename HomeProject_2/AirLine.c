@@ -14,9 +14,9 @@ int initAirLine(AirLine * pAirLine)
 
 void printAirLine(AirLine* pAirLine) {
 	if (pAirLine->numberOfFlights == 0)
-		printf("Airline name:%s and has no flights", pAirLine->name);
+		printf("\nAirline name:%s and has no flights.\n", pAirLine->name);
 
-	printf("Airline name:%s and has %d flights", pAirLine->name, pAirLine->numberOfFlights);
+	printf("Airline name:%s and has %d flights :\n", pAirLine->name, pAirLine->numberOfFlights);
 	for (size_t i = 0; i < pAirLine->numberOfFlights; i++)
 	{
 		PrintFlight(pAirLine->allFlights[i]);
@@ -64,7 +64,7 @@ void doPrintFlightsWithPlaneCode(AirLine * pAirLine, const char * code)
 	}
 	if (counter == 0)
 	{
-		printf("there are no flights with this code");
+		printf("\nthere are no flights with this code\n");
 	}
 
 }

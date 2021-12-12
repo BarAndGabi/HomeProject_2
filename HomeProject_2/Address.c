@@ -123,7 +123,7 @@ char* addressBuffer(Address* pA)
 
 void printAddress(const char *address)
 {
-	printf("%s\n", address);
+	printf("the address : %s\n", address);
 }
 
 void freeAddress(Address *pA)

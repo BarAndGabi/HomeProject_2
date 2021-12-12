@@ -27,10 +27,19 @@
     <ClCompile Include="AirLine.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AirPortManger.c">
+    <ClCompile Include="Flight.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Flight.c">
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AirportManager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utill.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Airplane.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,13 +53,19 @@
     <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AirPortManger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Flight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AirLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AirportManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Airplane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

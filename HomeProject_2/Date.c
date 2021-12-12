@@ -5,11 +5,11 @@
 
 int freeDate(Date *pD)
 {
-	free(&pD);
+	free(pD);
 	return 1;
 }
 
-int checkValidDate(char* day,char* month,char* year)
+int checkValidDate(char* day, char* month, char* year)
 {
 	int intDay, intMonth, intYear;
 	intDay = atoi(day);
@@ -61,25 +61,33 @@ int printDate(Date *pD)
 	int day = pD->day;
 	int month = pD->month;
 	if (month < 10 && day < 10)
-		printf("0%d/0%d/%d", day, month, pD->year);
+	{
+		printf(" the date :  0%d/0%d/%d\n", day, month, pD->year);
+		return 1;
+	}
 	if (month < 10)
 	{
-		printf("%d/0%d/%d", day, month, pD->year);
+		printf("the date : %d/0%d/%d\n", day, month, pD->year);
+		return 1;
 	}
-	if (day < 10)
-		printf("0%d/%d/%d", day, month, pD->year);
 
-	printf("%d/%d/%d", pD->day, pD->month, pD->year);
+	if (day < 10)
+	{
+		printf("the date :  0%d/%d/%d\n", day, month, pD->year);
+		return 1;
+	}
+	printf("the date :  %d/%d/%d\n", day, month, pD->year);
+
 	return 1;
 }
 
 int checkDateFormat(char* date)
 {
 	size_t lenth = strlen(date);
-	if (lenth!=13)
+	if (lenth != 13)
 		return 0;
 	int count = 0;
-	while (count<12)
+	while (count < 12)
 	{
 		if (count == 2 || count == 3 || count == 6 || count == 7)
 		{
@@ -98,10 +106,10 @@ int checkDateFormat(char* date)
 }
 int initDate(Date* pD)
 {
-	char* date=NULL;
-	char* day=NULL;
-	char* month=NULL;
-	char* year=NULL;
+	char* date = NULL;
+	char* day = NULL;
+	char* month = NULL;
+	char* year = NULL;
 	char* delimiters = "$$";
 	int temp;
 	do
@@ -109,20 +117,21 @@ int initDate(Date* pD)
 		date = createDynStr("Please enter the date (dd$$mm$$yyyy). Minimal year: 2022");
 		if (!checkDateFormat(date))
 		{
+			printf("\ntry againe\n");
 			temp = 0;
 		}
 		else
 		{
-			
+
 			day = strtok(date, delimiters);
 			month = strtok(NULL, delimiters);
 			year = strtok(NULL, delimiters);
 			temp = checkValidDate(day, month, year);
 		}
-		
-	} while ( !(temp));
+
+	} while (!(temp));
 	pD->day = atoi(day);
 	pD->month = atoi(month);
-	pD->year =atoi( year);
+	pD->year = atoi(year);
 	return 1;
 }

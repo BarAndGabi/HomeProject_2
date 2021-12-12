@@ -12,7 +12,7 @@ char *createDynStr(const char *msg)
 	char temp[255];
 	printf("Enter %s: ", msg);
 	fgets(temp,255,stdin);
-	while (strcmp(temp, "") == 0) {
+	while (strcmp(temp,"\n") == 0) {
 		printf("You didn't enter anything enter again: ");
 		fgets(temp, 255, stdin);
 	}
