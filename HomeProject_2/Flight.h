@@ -19,3 +19,6 @@ int isFlightFromSourceName(Flight* pF,const char* sourceName);
 int isFlightToDestName(Flight* pF,const char* destinationName);
 int isPlaneCodeInFlight(Flight* pF,const char* planeCode);
 int isPlaneTypeInFlight(Flight* pF,const airplaneType type);
+int checkSource(Flight * pF, AirportManager * pA);
+
+int checkDest(Flight * pF, AirportManager * pA);

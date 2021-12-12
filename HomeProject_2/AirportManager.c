@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "AirportManager.h"
-#include "AirPort.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -13,13 +12,17 @@ int initManagerMenu()
 	printf("enter 1 if you wish to add airport , enything else will abort\n");
 	scanf("%c", &choise);
 	while (choise =='\n') {
+		clearInputBuffer();
 		printf("you didnt enter anything enter a choise again:\n");
 		scanf("%c", &choise);
 	}
-	if (choise == '1')
+	if (choise == '1') {
+		clearInputBuffer();
 		return 1;
+	}
 
 	else
+		clearInputBuffer();
 		return 0;
 }
 void initAirportManager(AirportManager * pAirportManager)
@@ -47,6 +50,7 @@ void printAirportManager(AirportManager * pAirportManager)
 	{
 		printAirport(&pAirportManager->airports[i]);
 	}
+	printLine();
 }
 
 void freeAirportManager(AirportManager * pAirportManager)
@@ -67,9 +71,11 @@ int addAirport(AirportManager * pAirportManager)
 		free(&pA);
 		return 0;
 	}
-	if ((findAirportByName(pA.airportName, pAirportManager) != NULL)) {
-		printf("There is an airport with this name");
-
+	if ((findAirportByName(pA.airportName, pAirportManager) != NULL)) 
+	{
+		freeAirport(&pA);
+		printf("There is an airport with this name\n");
+		return 0;
 	}
 
 	pAirportManager->airports = (Airport*)realloc(pAirportManager->airports, (pAirportManager->airportsCounter + 1)*sizeof(Airport));

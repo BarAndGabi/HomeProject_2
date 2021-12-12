@@ -10,8 +10,7 @@ int initAddress(Address *pA)
 	pA->country = createDynStr("country name");
 	pA->city = createDynStr("city name");
 	pA->street = createDynStr("street name");
-	printf("enter house number : ");
-	scanf("%d", &pA->houseNumber);
+	pA->houseNumber = createDynStr("house number");
 	printf("\n");
 	return 1;
 }
@@ -44,12 +43,7 @@ char *addDiezBetween(char *inputStr)
 
 	return evenOrBiggerThan2(editedStr);
 }
-void checkAtrribute(Address *pA, char* fullAddress, char* addToStr)
-{
-	fullAddress = (char *)realloc(fullAddress, (strlen(addToStr) + 2) * sizeof(char));
-	strcpy(fullAddress, addToStr);
-	strcat(fullAddress, "@");
-}
+
 char *evenOrBiggerThan2(char *str)
 {
 	int counter = 0;
@@ -102,20 +96,31 @@ void checkWordLen(char *word, int length, int bool)
 			*(word) = tolower(*(word));
 	}
 }
-char *addressBuffer(Address *pA)
+
+char* addressBuffer(Address* pA)
 {
-	char *fullAddress = NULL;
-	char *addToStr;
-	addToStr = addDiezBetween(pA->country);
-	checkAtrribute(pA, fullAddress, addToStr);
-	addToStr = addDiezBetween(pA->city);
-	checkAtrribute(pA, fullAddress, addToStr);
-	addToStr = addDiezBetween(pA->street);
-	checkAtrribute(pA, fullAddress, addToStr);
-	sprintf(addToStr, "%d", pA->houseNumber);
-	checkAtrribute(pA, fullAddress, addToStr);
+	char* fullAddress = NULL;
+	char* currentAdd;
+	currentAdd = (pA->country);
+	fullAddress = (char*)realloc(fullAddress, (strlen(currentAdd) + 2) * sizeof(char));
+	strcpy(fullAddress, currentAdd);
+	strcat(fullAddress, "@");
+	currentAdd = addDiezBetween(pA->city);
+	fullAddress = (char*)realloc(fullAddress, (strlen(fullAddress) + strlen(currentAdd) + 2) * sizeof(char));
+	strcat(fullAddress, currentAdd);
+	strcat(fullAddress, "@");
+	currentAdd = addDiezBetween(pA->street);
+	fullAddress = (char*)realloc(fullAddress, (strlen(fullAddress) + strlen(currentAdd) + 2) * sizeof(char));
+	strcat(fullAddress, currentAdd);
+	strcat(fullAddress, "@");
+	currentAdd = addDiezBetween(pA->houseNumber);
+	fullAddress = (char*)realloc(fullAddress, (strlen(fullAddress) + strlen(currentAdd) + 2) * sizeof(char));
+	strcat(fullAddress, currentAdd);
+	removeChar(fullAddress, '\n');
 	return fullAddress;
 }
+
+
 void printAddress(const char *address)
 {
 	printf("%s\n", address);
@@ -126,21 +131,5 @@ void freeAddress(Address *pA)
 	free(pA->city);
 	free(pA->country);
 	free(pA->street);
-}
-
-int compareAddress(const Address * pA1, const Address * pA2)
-{
-	int check[] = {1,1,1};
-	if (pA1->houseNumber != pA2->houseNumber)
-		return 0;
-	check[0] = strcmp(pA1->city,pA2->city);
-	check[1] = strcmp(pA1->country, pA2->country);
-	check[2] = strcmp(pA1->street, pA2->street);
-	for (size_t i = 0; i < 3; i++)
-	{
-		if (check[i] != 0)
-			return 0;
-	}
-	return 1;
 }
 

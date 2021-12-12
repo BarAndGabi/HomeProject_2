@@ -10,7 +10,7 @@ int initAirport(Airport * pAirport)
 {
 	printf("You are about to init Airport get ready:\n");
 	pAirport->airportName = createDynStr("airport name");
-	printf("Please init Addres :\n");
+	printf("Please init Address:\n");
 	Address pAddress;
 	if (!initAddress(&pAddress))
 	{
@@ -23,14 +23,16 @@ int initAirport(Airport * pAirport)
 
 void printAirport(Airport * pAirport)
 {
-	printf("The Airport name is:%s\n", pAirport->airportName);
+	printf("The Airport name is:%s", pAirport->airportName);
+	printf("the address: ");
 	printAddress(pAirport->airportAddress);
+
 }
 
 void freeAirport(Airport * pAirport)
 {
-	free(&pAirport->airportAddress);
-	free(&pAirport->airportName);
+	free(pAirport->airportAddress);
+	free(pAirport->airportName);
 }
 
 int isSameAirport(const Airport * e1, const Airport * e2)
