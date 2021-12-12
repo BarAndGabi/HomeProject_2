@@ -11,7 +11,7 @@ typedef struct
 	int year;
 } Date;
 
-int checkValidDate(Date *pD);
+int checkValidDate(char* year, char* month, char* day);
 int initDate(Date * pD);
 int printDate(Date *pD);
 int freeDate(Date *pD);

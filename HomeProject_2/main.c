@@ -8,7 +8,7 @@
 
 void printOptions()
 {
-	printf("choose one of the followings\n ");
+	printf("choose one of the followings\n");
 	printf("option 1 - add Flight to AirLine.\n");
 	printf("option 2 - add Airport to airportManage.\n");
 	printf("option 3 - print AirLine properties.\n");
@@ -89,6 +89,7 @@ int menu(int *pC)
 {
 	printOptions();
 	scanf("%d", pC);
+	clearInputBuffer();
 	if (*(pC) < 1 || *(pC) > 8)
 	{
 		printf("try again\n");

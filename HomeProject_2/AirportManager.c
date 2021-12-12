@@ -38,7 +38,6 @@ void checkFromUser(AirportManager * pAirportManager)
 	while (ok)
 	{
 		addAirport(pAirportManager);
-		clearInputBuffer();
 		ok = initManagerMenu();
 	}
 }

@@ -18,6 +18,7 @@ int initFlight(Flight * pF,AirportManager* pA)
 	if (checkDest(pF, pA) == 0)
 		return 0;
 
+
 	Airplane newAirplane;
 	initAirplane(&newAirplane);
 	pF->airplaneDetails = newAirplane;

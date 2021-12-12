@@ -9,12 +9,15 @@ int freeDate(Date *pD)
 	return 1;
 }
 
-int checkValidDate(Date *pD)
+int checkValidDate(char* day,char* month,char* year)
 {
-
-	if (pD->year < 2022)
+	int intDay, intMonth, intYear;
+	intDay = atoi(day);
+	intMonth = atoi(month);
+	intYear = atoi(year);
+	if (intYear < 2022)
 		return 0;
-	switch (pD->month)
+	switch (intMonth)
 	{
 	case 1:
 	case 3:
@@ -23,14 +26,14 @@ int checkValidDate(Date *pD)
 	case 8:
 	case 10:
 	case 12:
-		if (pD->day > 31 || pD->day < 1)
+		if (intDay > 31 || intDay < 1)
 		{
 			printf("INVALID DATE: day out of range\n");
 			return 0;
 		}
 		break;
 	case 2:
-		if (pD->day > 28 || pD->day < 1)
+		if (intDay > 28 || intDay < 1)
 		{
 			printf("INVALID DATE: day out of range\n");
 			return 0;
@@ -40,7 +43,7 @@ int checkValidDate(Date *pD)
 	case 6:
 	case 9:
 	case 11:
-		if (pD->day > 30 || pD->day < 1)
+		if (intDay > 30 || intDay < 1)
 		{
 			printf("INVALID DATE: day out of range\n");
 			return 0;
@@ -70,50 +73,56 @@ int printDate(Date *pD)
 	return 1;
 }
 
-int checkDateFormat(char *d)
+int checkDateFormat(char* date)
 {
-	if (*(d + 12))
+	size_t lenth = strlen(date);
+	if (lenth!=13)
 		return 0;
-	int currentPlaceChecker = 0;
-	while (*(d + currentPlaceChecker))
+	int count = 0;
+	while (count<12)
 	{
-		if (currentPlaceChecker == 2 || currentPlaceChecker == 3 || currentPlaceChecker == 6 || currentPlaceChecker == 7)
+		if (count == 2 || count == 3 || count == 6 || count == 7)
 		{
-			if (*(d + currentPlaceChecker) != '$')
+			if (*(date + count) != '$')
 				return 0;
 		}
-		if(currentPlaceChecker == 1 || currentPlaceChecker == 5)
+		else
 		{
-			if (isdigit(*(d + currentPlaceChecker)) == 0)
+			if (isdigit(*(date + count)) == 0)
 				return 0;
 		}
 
-		currentPlaceChecker++;
+		count++;
 	}
 	return 1;
 }
-int initDate(Date *pD)
+int initDate(Date* pD)
 {
-	char *date;
-	char *dayChar;
-	char *monthChar;
-	char *yearChar;
-	char *doubleDollars = "$$";
-	int check;
+	char* date=NULL;
+	char* day=NULL;
+	char* month=NULL;
+	char* year=NULL;
+	char* delimiters = "$$";
+	int temp;
 	do
 	{
-		date = createDynStr("Please enter the date (dd$$mm$$yyyy). Minimum year: 2022\n");
-		if (!(checkDateFormat(date)))
-			check = 0;
+		date = createDynStr("Please enter the date (dd$$mm$$yyyy). Minimal year: 2022");
+		if (!checkDateFormat(date))
+		{
+			temp = 0;
+		}
 		else
-			check = 1;
-		dayChar = strtok(date, doubleDollars);
-		monthChar = strtok(NULL, doubleDollars);
-		yearChar = strtok(NULL, doubleDollars);
-		pD->day = atoi(dayChar);
-		pD->month = atoi(monthChar);
-		pD->year = atoi(yearChar);
-	} while (checkValidDate(pD) == 0 || !(check));
+		{
+			
+			day = strtok(date, delimiters);
+			month = strtok(NULL, delimiters);
+			year = strtok(NULL, delimiters);
+			temp = checkValidDate(day, month, year);
+		}
+		
+	} while ( !(temp));
+	pD->day = atoi(day);
+	pD->month = atoi(month);
+	pD->year =atoi( year);
 	return 1;
 }
-
