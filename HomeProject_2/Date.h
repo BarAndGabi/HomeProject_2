@@ -1,5 +1,9 @@
-#ifndef _DATE
-#define _DATE
+#pragma once
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
 typedef struct
 {
 	int day;
@@ -7,7 +11,9 @@ typedef struct
 	int year;
 } Date;
 
-int initDate(Date *pD);
-void printDate(Date *pD);
+int checkValidDate(char* year, char* month, char* day);
+int initDate(Date * pD);
+int printDate(Date *pD);
+int freeDate(Date *pD);
+int checkDateFormat(char *d);
 
-#endif // !_DATE

@@ -1,17 +1,17 @@
-#ifndef ADDRESS
-
-#define ADDRESS
-
+#pragma once
 typedef struct
 {
-	char *country;
-	char *city;
-	char *street;
-	int houseNumber;
+	char* country;
+	char* city;
+	char* street;
+	char* houseNumber; 
 } Address;
 
 int initAddress(Address *pA);
-void printAddress(Address *pA);
+void printAddress(const char *address);
 void freeAddress(Address *pA);
-char *createDynStr(const char *msg);
-#endif // !ADDRESS
+void checkWordLen(char *word, int length, int bool);
+char *addDiezBetween(char *inputStr);
+char *evenOrBiggerThan2(char *str);
+char *addressBuffer(Address *pA);
+
