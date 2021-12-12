@@ -26,7 +26,7 @@ char *createDynStr(const char *msg)
 int isUpperCase(const char* str)
 {
 	size_t length = strlen(str);
-	for (size_t i = 0; i < length; i++)
+	for (size_t i = 0; i < length-1; i++)
 		if (isupper(str[i]) != 1)
 			return 0;
 	return 1;

@@ -44,11 +44,16 @@ char *addDiezBetween(char *inputStr)
 
 	return evenOrBiggerThan2(editedStr);
 }
-void checkAtrribute(Address *pA, char* fullAddress, char* addToStr)
+char* checkAtrribute(Address *pA, char* fullAddress, char* addToStr)
 {
 	fullAddress = (char *)realloc(fullAddress, (strlen(addToStr) + 2) * sizeof(char));
+	if (!fullAddress) {
+		free(fullAddress);
+		return NULL;
+	}
 	strcpy(fullAddress, addToStr);
 	strcat(fullAddress, "@");
+	return fullAddress;
 }
 char *evenOrBiggerThan2(char *str)
 {
@@ -102,18 +107,18 @@ void checkWordLen(char *word, int length, int bool)
 			*(word) = tolower(*(word));
 	}
 }
-char *addressBuffer(Address *pA)
+char * addressBuffer(Address *pA)
 {
 	char *fullAddress = NULL;
 	char *addToStr;
 	addToStr = addDiezBetween(pA->country);
-	checkAtrribute(pA, fullAddress, addToStr);
+	fullAddress=checkAtrribute(pA, fullAddress, addToStr);
 	addToStr = addDiezBetween(pA->city);
-	checkAtrribute(pA, fullAddress, addToStr);
+	fullAddress=checkAtrribute(pA, fullAddress, addToStr);
 	addToStr = addDiezBetween(pA->street);
-	checkAtrribute(pA, fullAddress, addToStr);
-	sprintf(addToStr, "%d", pA->houseNumber);
-	checkAtrribute(pA, fullAddress, addToStr);
+	fullAddress=checkAtrribute(pA, fullAddress, addToStr);
+    sprintf(addToStr, "%d", pA->houseNumber);
+	fullAddress=checkAtrribute(pA, fullAddress, addToStr);
 	return fullAddress;
 }
 void printAddress(const char *address)
@@ -126,21 +131,5 @@ void freeAddress(Address *pA)
 	free(pA->city);
 	free(pA->country);
 	free(pA->street);
-}
-
-int compareAddress(const Address * pA1, const Address * pA2)
-{
-	int check[] = {1,1,1};
-	if (pA1->houseNumber != pA2->houseNumber)
-		return 0;
-	check[0] = strcmp(pA1->city,pA2->city);
-	check[1] = strcmp(pA1->country, pA2->country);
-	check[2] = strcmp(pA1->street, pA2->street);
-	for (size_t i = 0; i < 3; i++)
-	{
-		if (check[i] != 0)
-			return 0;
-	}
-	return 1;
 }
 

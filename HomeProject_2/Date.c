@@ -82,7 +82,7 @@ int checkDateFormat(char *d)
 			if (*(d + currentPlaceChecker) != '$')
 				return 0;
 		}
-		else
+		if(currentPlaceChecker == 1 || currentPlaceChecker == 5)
 		{
 			if (isdigit(*(d + currentPlaceChecker)) == 0)
 				return 0;

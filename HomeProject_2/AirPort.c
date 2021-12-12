@@ -29,7 +29,7 @@ void printAirport(Airport * pAirport)
 
 void freeAirport(Airport * pAirport)
 {
-	free(&pAirport->airportAddress);
+	free(pAirport->airportAddress);
 	free(pAirport->airportName);
 }
 

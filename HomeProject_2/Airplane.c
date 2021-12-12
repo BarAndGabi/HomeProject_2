@@ -7,18 +7,19 @@ const char* types[eNofTypes]={ "Passangers", "Cargo","Military"};
 void initAirplane(Airplane *pAirplane)
 {
 	pAirplane->type = getTypeFromUser();
-
+	clearInputBuffer();
 	char* temp = createDynStr("the code");
 	if (!temp) {
-		free(temp);
+		free(temp); 
 	}
-	while (!checkCorrectCode(temp))
+	while (checkCorrectCode(temp)==0)
 	{
 		free(temp);
 		temp = createDynStr("code again please");
 		if (!temp) {
 		free(temp);
 		}
+		checkCorrectCode(temp);
 	}
 	strcpy(pAirplane->code, temp);;
 }
@@ -29,13 +30,9 @@ void printAirplane(Airplane * pAirplane)
 }
 
 int checkCorrectCode(char* string)
-{
-	if(strlen(string)<0||strlen(string)>4)
-	return 0;
-	
-	if (isUpperCase(string))
+{   
+	if (strlen(string) == 5 && isUpperCase(string))
 		return 1;
-	
 	return 0;
 }
 
