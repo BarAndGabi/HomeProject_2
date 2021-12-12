@@ -34,6 +34,7 @@ int printNumOfFlightsFromAirport(AirLine* l, AirportManager* m)
 		free(str);
 		return 0;
 	}
+	removeChar(str,'\n');
 	int n = doCountFlightsFromName(l, str);
 	free(str);
 	if (n > 0)
@@ -155,6 +156,7 @@ void main()
 			{
 				choosenInit(choise, &m1, &l1);
 				choise = 0;
+				printf("back to menu , GET READY ....\n\n\n\n\n\n\n");
 			}
 			else
 				printf("\nthank you \n bye. \n ");

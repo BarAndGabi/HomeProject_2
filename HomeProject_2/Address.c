@@ -101,7 +101,7 @@ char* addressBuffer(Address* pA)
 {
 	char* fullAddress = NULL;
 	char* currentAdd;
-	currentAdd = (pA->country);
+	currentAdd = addDiezBetween(pA->country);
 	fullAddress = (char*)realloc(fullAddress, (strlen(currentAdd) + 2) * sizeof(char));
 	strcpy(fullAddress, currentAdd);
 	strcat(fullAddress, "@");

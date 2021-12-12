@@ -53,7 +53,6 @@ int freeFlight(Flight * pF)
 
 int isFlightFromSourceName(Flight * pF, const char * name)
 {
-	removeChar(name, '\n');
 	if (strcmp(pF->airportSourceName, name)==0)
 		return 1;
 
