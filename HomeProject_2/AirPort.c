@@ -23,8 +23,10 @@ int initAirport(Airport * pAirport)
 
 void printAirport(Airport * pAirport)
 {
-	printf("The Airport name is:%s\n", pAirport->airportName);
+	printf("The Airport name is:%s", pAirport->airportName);
+	printf("the address: ");
 	printAddress(pAirport->airportAddress);
+
 }
 
 void freeAirport(Airport * pAirport)

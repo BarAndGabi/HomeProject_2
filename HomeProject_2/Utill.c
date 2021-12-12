@@ -39,4 +39,25 @@ void clearInputBuffer(void) {
 	} while (c != '\n');
 }
 
+void removeChar(char * str, char charToRemmove)
+{
+	int i, j;
+	size_t len = strlen(str);
+	for (i = 0; i < len; i++)
+	{
+		if (str[i] == charToRemmove)
+		{
+			for (j = i; j < len; j++)
+			{
+				str[j] = str[j + 1];
+			}
+			len--;
+			i--;
+		}
+	}
 
+}
+void printLine()
+{
+	printf("\n");
+}

@@ -51,6 +51,7 @@ void printAirportManager(AirportManager * pAirportManager)
 	{
 		printAirport(&pAirportManager->airports[i]);
 	}
+	printLine();
 }
 
 void freeAirportManager(AirportManager * pAirportManager)
@@ -74,9 +75,8 @@ int addAirport(AirportManager * pAirportManager)
 	if ((findAirportByName(pA.airportName, pAirportManager) != NULL)) 
 	{
 		freeAirport(&pA);
-		free(&pA);
 		printf("There is an airport with this name\n");
-
+		return 0;
 	}
 
 	pAirportManager->airports = (Airport*)realloc(pAirportManager->airports, (pAirportManager->airportsCounter + 1)*sizeof(Airport));

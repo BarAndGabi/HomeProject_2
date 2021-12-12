@@ -114,6 +114,7 @@ int choosenInit(int choosen, AirportManager *m, AirLine *l)
 		printAirLine(l);
 		break;
 	case 4:
+		printf("printing airport manager : \n");
 		printAirportManager(m);
 		break;
 	case 5:
